@@ -174,10 +174,7 @@ class _PatchesSelectorViewState extends State<PatchesSelectorView> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                model.getPatchCategory(
-                                  context,
-                                  t.patchesSelectorView.newPatches,
-                                ),
+                                model.getPatchCategory(context, t.patchesSelectorView.newPatches),
                                 ...model.getQueriedPatches(_query).map((patch) {
                                   if (model.isPatchNew(patch)) {
                                     return model.getPatchItem(context, patch);
@@ -191,8 +188,7 @@ class _PatchesSelectorViewState extends State<PatchesSelectorView> {
                             ),
                           ...model.getQueriedPatches(_query).map(
                             (patch) {
-                              if (patch.compatiblePackages.isNotEmpty &&
-                                  !model.isPatchNew(patch)) {
+                              if (patch.compatiblePackages.isNotEmpty && !model.isPatchNew(patch)) {
                                 return model.getPatchItem(context, patch);
                               } else {
                                 return Container();
@@ -205,10 +201,7 @@ class _PatchesSelectorViewState extends State<PatchesSelectorView> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                model.getPatchCategory(
-                                  context,
-                                  t.patchesSelectorView.universalPatches,
-                                ),
+                                model.getPatchCategory(context, t.patchesSelectorView.universalPatches),
                                 ...model.getQueriedPatches(_query).map((patch) {
                                   if (patch.compatiblePackages.isEmpty &&
                                       !model.isPatchNew(patch)) {

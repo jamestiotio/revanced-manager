@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:revanced_manager/gen/strings.g.dart';
 import 'package:revanced_manager/models/patch.dart';
 import 'package:revanced_manager/ui/widgets/shared/custom_card.dart';
@@ -391,9 +392,7 @@ class _TextFieldForPatchOptionState extends State<TextFieldForPatchOption> {
     final bool isStringOption = widget.optionType.contains('String');
     final bool isArrayOption = widget.optionType.contains('Array');
     selectedKey ??= widget.selectedKey;
-    controller.text = !isStringOption &&
-            isArrayOption &&
-            selectedKey == '' &&
+    controller.text = !isStringOption && isArrayOption && selectedKey == '' &&
             (widget.value != null && widget.value.toString().startsWith('['))
         ? ''
         : widget.value ?? '';
